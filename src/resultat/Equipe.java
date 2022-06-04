@@ -10,16 +10,25 @@ public class Equipe {
 
     public Equipe(String nomEquipe) {
         this.nomEquipe = nomEquipe;
-        listeJoueur = new ArrayList<Joueur>();
-        for (int i = 0; i < 21 ; i++){
-            Joueur joueur = new Joueur();
-            listeJoueur.add(joueur);
-        }
-        scoreEquipe = 0;
+        listeJoueur = generatePlayers();
+        scoreEquipe = getAverageScore();
+    }
+
+    private float getAverageScore() {
+        float scoreAccumule = 0;
         for ( Joueur j : listeJoueur){
-            scoreEquipe = scoreEquipe + j.getTauxReussite();
+            scoreAccumule = scoreEquipe + j.getTauxReussite();
         }
-        scoreEquipe = scoreEquipe / 21;
+
+        return scoreAccumule / 21;
+    }
+
+    private List<Joueur> generatePlayers() {
+        List<Joueur> listPlayers = new ArrayList<>();
+        for (int i = 0; i < 21 ; i++){
+            listPlayers.add(new Joueur());
+        }
+        return listPlayers;
     }
 
     public List<Joueur> getListeJoueur() {

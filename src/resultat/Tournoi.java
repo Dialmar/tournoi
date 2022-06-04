@@ -9,7 +9,7 @@ public class Tournoi{
     private Equipe vainqueurTournoi;
 
     public Tournoi() {
-        listeEquipe = new ArrayList<Equipe>();
+        listeEquipe = new ArrayList<>();
         for (int i = 0; i<8; i++){
             Equipe equipe = new Equipe("equipe" + (i + 1));
             listeEquipe.add(equipe);
@@ -27,10 +27,9 @@ public class Tournoi{
             System.out.println("------------------------------");
 
             return;
-
         }
         else {
-            List gagnants = new ArrayList< Equipe >();
+            List<Equipe> gagnants = new ArrayList<>();
             int i = 0;
             int j = 1;
 
